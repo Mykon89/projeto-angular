@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #f8b739;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(4, 90, 140, 1) 0%,
+    rgba(129, 208, 255, 1) 100%
+  );
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 15px;
+  transition: margin-left 0.3s;
+}

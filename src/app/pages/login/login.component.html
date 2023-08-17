@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="container-login">
+    <div class="wrap-login">
+      <form class="login-form">
+        <span class="login-form-title"
+          ><img src="../../../assets/logo.svg" alt="Logo"
+        /></span>
+        <span class="login-form-title">Login</span>
+        <div class="wrap-input">
+          <input
+            [class.has-val]="user !== ''"
+            class="input"
+            type="text"
+            [(ngModel)]="formData.user"
+            name="user"
+          />
+          <span class="focus-input" data-placeholder="Usuário"></span>
+        </div>
+        <div class="wrap-input">
+          <input
+            [class.has-val]="password !== ''"
+            class="input"
+            type="password"
+            [(ngModel)]="formData.password"
+            name="password"
+          />
+          <span class="focus-input" data-placeholder="Senha"></span>
+        </div>
+
+        <div class="container-login-form-btn">
+          <button class="login-form-btn" (click)="onSubmit()">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
