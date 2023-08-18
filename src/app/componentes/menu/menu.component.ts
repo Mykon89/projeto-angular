@@ -7,6 +7,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent {
+  MenuItems = [
+    { text: 'Home', link: '/home', cName: 'menu-item' },
+    {
+      text: 'Cadastro de Usuário',
+      link: '/cadastrar-usuario',
+      cName: 'menu-item',
+    },
+    { text: 'Licença', link: '/licenca', cName: 'menu-item' },
+    { text: 'Meus dados', link: '/meus-dados', cName: 'menu-item' },
+    { text: 'Contrato', link: '/contrato', cName: 'menu-item' },
+    { text: 'Configurações', link: '/configuracao', cName: 'menu-item' },
+    {
+      text: 'Usuários',
+      link: '/listar-usuario',
+      cName: 'menu-item',
+    },
+  ];
+
   get username(): string {
     return localStorage.getItem('username') || ''; // Obter o nome do usuário do localStorage
   }
@@ -24,11 +42,6 @@ export class MenuComponent {
   }
 
   constructor(private router: Router) {}
-
-  isMenuInvisible = false;
-  openMenu(): void {
-    this.isMenuInvisible = !this.isMenuInvisible;
-  }
 
   logout(): void {
     localStorage.clear();

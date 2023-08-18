@@ -17,16 +17,12 @@
     <!-- badge de admin -->
   </div>
   <ul class="menu-list">
-    <li class="menu-item" routerLink="/home">Home</li>
-    <li class="menu-item" routerLink="/form-create-user">
-      Cadastro de usuario
+    <li
+      *ngFor="let item of MenuItems"
+      class="{{ item.cName }}"
+      routerLink="{{ item.link }}"
+    >
+      {{ item.text }}
     </li>
-    <li class="menu-item" routerLink="/license">Licença</li>
-    <li class="menu-item" routerLink="/client">Meus dados</li>
-    <li class="menu-item" routerLink="/contract">Contrato</li>
-    <li class="menu-item" routerLink="/config">Configurações de plataforma</li>
-    <hr />
-    <li class="menu-item" routerLink="/users">Usuarios da plataforma</li>
-    <!-- Adicione mais itens do menu, se necessário -->
   </ul>
 </div>
