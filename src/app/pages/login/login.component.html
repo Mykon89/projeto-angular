@@ -8,23 +8,33 @@
         <span class="login-form-title">Login</span>
         <div class="wrap-input">
           <input
-            [class.has-val]="user !== ''"
             class="input"
             type="text"
             [(ngModel)]="formData.user"
             name="user"
+            (focus)="inputFocused('user')"
+            (blur)="inputBlurred('user')"
           />
-          <span class="focus-input" data-placeholder="Usuário"></span>
+          <label
+            class="focus-input"
+            [class.shrink]="focusedStates['user'] || formData.user"
+            >Usuário</label
+          >
         </div>
         <div class="wrap-input">
           <input
-            [class.has-val]="password !== ''"
             class="input"
             type="password"
             [(ngModel)]="formData.password"
             name="password"
+            (focus)="inputFocused('password')"
+            (blur)="inputBlurred('password')"
           />
-          <span class="focus-input" data-placeholder="Senha"></span>
+          <label
+            class="focus-input"
+            [class.shrink]="focusedStates['password'] || formData.password"
+            >Senha</label
+          >
         </div>
 
         <div class="container-login-form-btn">

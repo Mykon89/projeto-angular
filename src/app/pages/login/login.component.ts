@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  user: string = '';
-  password: string = '';
-  formData = {
+  formData: { user: string; password: string } = {
     user: '',
     password: '',
   };
@@ -19,10 +17,21 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  focusedStates: { [key: string]: boolean } = {};
+
+  inputFocused(inputField: string) {
+    this.focusedStates[inputField] = true;
+  }
+
+  inputBlurred(inputField: string) {
+    if (this.focusedStates[inputField]) {
+      this.focusedStates[inputField] = false;
+    }
+  }
+
   onSubmit() {
     const { user, password } = this.formData; // Use 'user' em vez de 'username' para corresponder ao objeto esperado pelo backend.
 
-    console.log(user);
     this.authService
       .login(user, password)
       .then((response) => {
