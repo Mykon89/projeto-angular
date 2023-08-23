@@ -1,4 +1,4 @@
-import { AuthService } from './../../../../auth.service';
+import { AuthService } from './../../auth.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,8 @@ export class LoginComponent {
     user: '',
     password: '',
   };
+
+  ngOnInit(): void {}
 
   loginError = false; // Variável para controlar o estado de erro de login
 

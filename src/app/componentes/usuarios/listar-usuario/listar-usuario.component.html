@@ -1,3 +1,39 @@
 <div class="main-content">
-  <p>listar usuários</p>
+  <div class="filters">
+    <div class="filter">
+      <label for="usuario">Usuário:</label>
+      <input type="text" id="usuario" [(ngModel)]="usuarioFilter" />
+    </div>
+    <div class="filter">
+      <label for="email">Email:</label>
+      <input type="text" id="email" [(ngModel)]="emailFilter" />
+    </div>
+    <div class="filter">
+      <label for="ativo">Ativo:</label>
+      <select id="ativo" [(ngModel)]="ativoFilter">
+        <option value="TODOS">TODOS</option>
+        <option value="ATIVO">ATIVO</option>
+        <option value="INATIVO">INATIVO</option>
+      </select>
+    </div>
+    <div class="filter">
+      <label for="grupo">Grupo:</label>
+      <select id="grupo" [(ngModel)]="grupoFilter">
+        <option value="TODOS">TODOS</option>
+        <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+        <option value="ALUNO">ALUNO</option>
+        <option value="PERSONAL">PERSONAL</option>
+      </select>
+    </div>
+    <button (click)="applyFilters()">Aplicar Filtros</button>
+  </div>
+  <div class="results">
+    <p>Resultado: {{ filteredUsers.length }}</p>
+    <ul>
+      <li *ngFor="let user of filteredUsers">
+        Usuário: {{ user.username }} | Email: {{ user.email }} | Ativo:
+        {{ user.ativo }} | Grupo: {{ user.grupo }}
+      </li>
+    </ul>
+  </div>
 </div>

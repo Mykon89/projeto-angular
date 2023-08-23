@@ -1,3 +1,69 @@
 <div class="main-content">
-  <p>cadastrar-usuario works!</p>
+  <h2 class="title">Cadastrar Usuário</h2>
+  <form (ngSubmit)="submitForm(userForm)" #userForm="ngForm" class="user-form">
+    <label for="username">Usuário:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      required
+      class="form-input"
+      placeholder="Usuário"
+    />
+
+    <label for="password">Senha:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      required
+      class="form-input"
+      placeholder="Senha"
+    />
+
+    <label for="email">E-mail:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="form-input"
+      placeholder="E-mail"
+    />
+
+    <label for="address">Endereço:</label>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      class="form-input"
+      placeholder="Endereço"
+    />
+
+    <label for="phone">Telefone:</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      class="form-input"
+      placeholder="Telefone"
+    />
+
+    <label for="group">Grupo:</label>
+    <select id="group" name="group" class="form-input">
+      <option value="1" selected>ADMINISTRADOR</option>
+      <option value="2">ALUNO</option>
+      <option value="3">PERSONAL</option>
+    </select>
+
+    <div class="switch-container">
+      <label class="switch-label">Ativo:</label>
+      <label class="switch">
+        <input type="checkbox" name="active" [(ngModel)]="active" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-button">Salvar</button>
+  </form>
 </div>
