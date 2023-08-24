@@ -1,11 +1,12 @@
 <div class="main-content">
   <h2 class="title">Cadastrar Usuário</h2>
   <form (ngSubmit)="submitForm(userForm)" #userForm="ngForm" class="user-form">
-    <label for="username">Usuário:</label>
+    <label for="user">Usuário:</label>
     <input
       type="text"
-      id="username"
-      name="username"
+      id="user"
+      name="user"
+      [(ngModel)]="frmData.user"
       required
       class="form-input"
       placeholder="Usuário"
@@ -16,6 +17,7 @@
       type="password"
       id="password"
       name="password"
+      [(ngModel)]="frmData.password"
       required
       class="form-input"
       placeholder="Senha"
@@ -26,6 +28,7 @@
       type="email"
       id="email"
       name="email"
+      [(ngModel)]="frmData.email"
       required
       class="form-input"
       placeholder="E-mail"
@@ -36,6 +39,7 @@
       type="text"
       id="address"
       name="address"
+      [(ngModel)]="frmData.address"
       class="form-input"
       placeholder="Endereço"
     />
@@ -45,12 +49,18 @@
       type="tel"
       id="phone"
       name="phone"
+      [(ngModel)]="frmData.phone"
       class="form-input"
       placeholder="Telefone"
     />
 
     <label for="group">Grupo:</label>
-    <select id="group" name="group" class="form-input">
+    <select
+      id="group"
+      name="group"
+      [(ngModel)]="frmData.user_group"
+      class="form-input"
+    >
       <option value="1" selected>ADMINISTRADOR</option>
       <option value="2">ALUNO</option>
       <option value="3">PERSONAL</option>
@@ -64,6 +74,8 @@
       </label>
     </div>
 
-    <button type="submit" class="submit-button">Salvar</button>
+    <button type="submit" class="submit-button" (click)="onSubmit()">
+      Salvar
+    </button>
   </form>
 </div>
